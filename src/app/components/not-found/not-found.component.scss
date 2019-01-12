@@ -1,0 +1,8 @@
+@import "../../../styles.scss";
+
+.page {
+  @include center;
+  @include font;
+
+  text-align: center;
+}

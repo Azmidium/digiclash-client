@@ -1,0 +1,20 @@
+<mat-form-field class="fill" appearance="standard">
+  <mat-label>Description</mat-label>
+
+  <textarea
+    matInput
+    placeholder="Enter description here"
+    cdkTextareaAutosize
+    cdkAutosizeMinRows="10"
+    [maxlength]="editCreateService.description_char_limits"
+    [(ngModel)]="editCreateService.question_set.description"
+  ></textarea>
+
+  <char-limit
+    [text]="editCreateService.question_set.description"
+    [max]="editCreateService.description_char_limits"
+    warn="300"
+    danger="100"
+    matSuffix
+  ></char-limit>
+</mat-form-field>

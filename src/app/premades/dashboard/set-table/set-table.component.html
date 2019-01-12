@@ -1,0 +1,99 @@
+<table
+  #table
+  mat-table
+  multiTemplateDataRows
+  click-stop-propagation
+  [dataSource]="questionSetService.question_sets"
+  class="page fill"
+>
+  <!-- mat-elevation-z8 -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let set">{{ set.title || "[Untitled Set]" }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="created">
+    <th mat-header-cell *matHeaderCellDef>Created</th>
+    <td mat-cell *matCellDef="let set">
+      {{ getDate(set.date_created) || "N/A" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edited">
+    <th mat-header-cell *matHeaderCellDef>Last Edit</th>
+    <td mat-cell *matCellDef="let set">
+      {{ getDate(set.date_edited) || "N/A" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="questions">
+    <th mat-header-cell *matHeaderCellDef>Questions</th>
+    <td mat-cell *matCellDef="let set">{{ set.questions.length || 0 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="visibility">
+    <th mat-header-cell *matHeaderCellDef>Visibility</th>
+    <td mat-cell *matCellDef="let set">
+      {{ set.public ? "Public" : "Private" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let set" [attr.colspan]="columns.length">
+      <div
+        class="detail"
+        [@detailExpand]="set == expandedSet ? 'expanded' : 'collapsed'"
+      >
+        <div class="fill">
+          <p *ngFor="let question of set.questions">
+            <b
+              >Q{{ set.questions.indexOf(question) + 1 }}:
+              {{ question.text }}</b
+            >
+          </p>
+
+          <mat-divider class="divide"></mat-divider>
+
+          <div class="center-children flex-row">
+            <button mat-raised-button (click)="hostService.hostGame(set)">
+              Play
+              <mat-icon style="color: lightgreen">play_arrow</mat-icon>
+            </button>
+
+            <button
+              class="space"
+              mat-raised-button
+              (click)="editCreateService.initializeEdit(set)"
+            >
+              Edit
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button
+              class="space"
+              mat-raised-button
+              (click)="questionSetService.removeQuestionSet(set, table)"
+            >
+              Delete
+              <mat-icon style="color: red">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let set; columns: columns"
+    class="row"
+    [class.expanded-row]="expandedSet === set"
+    (click)="expandedSet = expandedSet === set ? null : set"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: ['expandedDetail']"
+    class="detail-row"
+  ></tr>
+</table>

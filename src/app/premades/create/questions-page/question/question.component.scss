@@ -1,0 +1,51 @@
+@import "../../../../../styles.scss";
+
+.page {
+  text-align: center;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.center-row {
+  top: 12px;
+}
+
+.header-length {
+  width: 300px;
+}
+
+.large-space {
+  margin: 0 52px;
+}
+
+.buffer-space {
+  margin-bottom: 26px;
+}
+
+.space {
+  margin-top: 26px;
+}
+
+.button {
+  top: 16px;
+}
+
+.fill {
+  @include fill;
+}
+
+.add {
+  color: lightgreen;
+}
+
+.remove {
+  color: red;
+}

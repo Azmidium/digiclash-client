@@ -1,0 +1,29 @@
+<div class="fill row">
+  <mat-slider
+    thumbLabel
+    min="0"
+    max="2000"
+    step="50"
+    class="fill center-row"
+    tickInterval="2"
+    (change)="verifyInput()"
+    [(ngModel)]="points"
+  ></mat-slider>
+
+  <mat-form-field appearance="standard" class="space">
+    <mat-label>Points</mat-label>
+    <input
+      matInput
+      class="header-length"
+      type="number"
+      min="0"
+      step="50"
+      max="2000"
+      placeholder="Insert points here"
+      (change)="verifyInput()"
+      [(ngModel)]="points"
+    />
+    <p matSuffix>{{ suffix }}</p>
+    <mat-hint>Between 0 - 2000</mat-hint>
+  </mat-form-field>
+</div>

@@ -1,0 +1,21 @@
+@import "../../../styles.scss";
+
+.font {
+  @include font;
+}
+
+.none {
+  color: lightgray;
+}
+
+.warn {
+  color: orange;
+}
+
+.danger {
+  color: red;
+}
+
+.full {
+  color: black;
+}

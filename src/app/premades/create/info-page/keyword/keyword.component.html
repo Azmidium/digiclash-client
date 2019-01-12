@@ -1,0 +1,28 @@
+<mat-form-field class="fill">
+  <mat-chip-list #chipList>
+    <mat-chip
+      *ngFor="let keyword of editCreateService.question_set.keywords"
+      selectable="true"
+      removable="true"
+      (removed)="remove(keyword)"
+    >
+      {{ keyword }}
+      <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+    <input
+      placeholder="Keywords"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      matChipInputAddOnBlur="true"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+
+  <keyword-counter
+    matSuffix
+    [keywords]="editCreateService.question_set.keywords"
+    [max]="editCreateService.keyword_word_limits"
+    warn="6"
+    danger="2"
+  ></keyword-counter>
+</mat-form-field>

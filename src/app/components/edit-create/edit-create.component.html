@@ -1,0 +1,74 @@
+<div class="page">
+  <div class="fill center-children row">
+    <button mat-icon-button (click)="goToDashboard()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <h1 class="space">
+      {{ editCreateService.edit_mode ? "Edit" : "Create" }} Question Set
+    </h1>
+
+    <!-- Edits set -->
+    <button
+      class="space"
+      mat-icon-button
+      *ngIf="editCreateService.edit_mode"
+      (click)="editCreateService.editQuestionSet()"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <!-- Creates new set -->
+    <button
+      class="space"
+      mat-icon-button
+      *ngIf="!editCreateService.edit_mode"
+      (click)="editCreateService.uploadQuestionSet()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <mat-tab-group
+    class="subpage"
+    mat-align-tabs="center"
+    animationDuration="0ms"
+  >
+    <mat-tab label="Info"> <info></info> </mat-tab>
+
+    <mat-tab label="Game Settings"> <settings></settings> </mat-tab>
+
+    <mat-tab label="Questions">
+      <question
+        *ngFor="let question of editCreateService.question_set.questions"
+        [question]="question"
+        [index]="editCreateService.question_set.questions.indexOf(question)"
+      ></question>
+
+      <button
+        mat-icon-button
+        (click)="editCreateService.addQuestion()"
+        class="add-button"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-tab>
+
+    <mat-tab *ngFor="let question_index of editCreateService.preview_questions">
+      <ng-template mat-tab-label>
+        Preview: Question #{{ question_index + 1 }}
+        <button mat-icon-button>
+          <mat-icon
+            style="color: red"
+            (click)="editCreateService.removePreviewQuestion(question_index)"
+            >close</mat-icon
+          >
+        </button>
+      </ng-template>
+
+      <p>
+        {{ editCreateService.question_set.questions[question_index] | json }}
+      </p>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="fill center-children row">
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+    <h1 class="space">Dashboard</h1>
+  </div>
+
+  <mat-tab-group
+    class="subpage"
+    mat-align-tabs="center"
+    animationDuration="0ms"
+  >
+    <mat-tab label="My Question Sets">
+      <div>
+        <set-table
+          [question_sets]="questionSetService.question_sets"
+        ></set-table>
+      </div>
+
+      <button
+        mat-icon-button
+        (click)="editCreateService.initializeCreate()"
+        class="add-button"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-tab>
+    <mat-tab label="My Reports"></mat-tab>
+    <mat-tab label="Account Settings"></mat-tab>
+  </mat-tab-group>
+</div>

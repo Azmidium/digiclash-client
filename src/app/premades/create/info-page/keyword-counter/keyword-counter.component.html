@@ -1,0 +1,11 @@
+<p
+  [ngClass]="{
+    none: keywordsLeft() > warn,
+    warn: keywordsLeft() <= warn && keywordsLeft() > danger,
+    danger: keywordsLeft() <= danger && keywordsLeft() !== 0,
+    full: keywordsLeft() === 0
+  }"
+  class="font"
+>
+  {{ keywordsLeft() }}
+</p>

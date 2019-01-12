@@ -1,0 +1,35 @@
+<div class="page large-space">
+  <boolean-toggler
+    [bool]="editCreateService.question_set.timed"
+    (change)="editCreateService.question_set.timed = $event"
+    header="Timed Set"
+    pos_text="ENABLED"
+    neg_text="DISABLED"
+  ></boolean-toggler>
+</div>
+
+<mat-divider class="space"></mat-divider>
+
+<div *ngIf="editCreateService.question_set.timed">
+  <div class="page large-space">
+    <h1>Leaderboard Time</h1>
+
+    <leaderboard-slider
+      [leaderboard_time]="editCreateService.question_set.leaderboard_time"
+      suffix="second(s)"
+      (change)="leaderboard_change($event)"
+    ></leaderboard-slider>
+  </div>
+
+  <mat-divider class="space"></mat-divider>
+
+  <div class="page large-space">
+    <h1>Transition Time</h1>
+
+    <transition-slider
+      [transition_time]="editCreateService.question_set.transition_time"
+      suffix="second(s)"
+      (change)="transition_change($event)"
+    ></transition-slider>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<p
+  [ngClass]="{
+    none: textLeft() > warn,
+    warn: textLeft() <= warn && textLeft() > danger,
+    danger: textLeft() <= danger && textLeft() !== 0,
+    full: textLeft() === 0
+  }"
+  class="font"
+>
+  {{ textLeft() }}
+</p>

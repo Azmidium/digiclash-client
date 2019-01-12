@@ -1,0 +1,14 @@
+@import "../../../styles.scss";
+
+.page {
+  text-align: center;
+}
+
+.page img {
+  display: block;
+  margin: 8px auto;
+}
+
+ng-content {
+  @include font;
+}

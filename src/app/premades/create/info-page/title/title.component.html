@@ -1,0 +1,18 @@
+<mat-form-field class="fill" appearance="standard">
+  <mat-label>Title</mat-label>
+
+  <input
+    matInput
+    placeholder="Enter title here"
+    [maxlength]="editCreateService.title_char_limits"
+    [(ngModel)]="editCreateService.question_set.title"
+  />
+
+  <char-limit
+    [text]="editCreateService.question_set.title"
+    [max]="editCreateService.title_char_limits"
+    warn="60"
+    danger="20"
+    matSuffix
+  ></char-limit>
+</mat-form-field>

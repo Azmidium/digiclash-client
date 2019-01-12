@@ -1,0 +1,17 @@
+<div class="page large-space">
+  <title-field class="fill"></title-field>
+  <keyword-field class="fill"></keyword-field>
+  <description-field class="fill"></description-field>
+</div>
+
+<mat-divider class="space"></mat-divider>
+
+<div class="page large-space">
+  <boolean-toggler
+    [bool]="editCreateService.question_set.public"
+    (change)="editCreateService.question_set.public = $event"
+    header="Visibility"
+    pos_text="PUBLIC"
+    neg_text="PRIVATE"
+  ></boolean-toggler>
+</div>

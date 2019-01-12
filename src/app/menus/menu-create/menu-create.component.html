@@ -1,0 +1,15 @@
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="editCreateService.removeQuestion(question)">
+    <mat-icon class="remove">remove</mat-icon>
+    Delete
+  </button>
+
+  <button
+    mat-menu-item
+    disabled="true"
+    (click)="editCreateService.addPreviewQuestion(question)"
+  >
+    <mat-icon>visibility</mat-icon>
+    Preview
+  </button>
+</mat-menu>

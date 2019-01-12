@@ -1,0 +1,33 @@
+<div class="page large-space">
+  <question-field
+    [question]="question"
+    [index]="editCreateService.question_set.questions.indexOf(question)"
+  ></question-field>
+
+  <option-main
+    *ngFor="let option of question.options"
+    [question]="question"
+    [option]="option"
+    [index]="question.options.indexOf(option)"
+    class="fill"
+  ></option-main>
+
+  <button
+    mat-raised-button
+    (click)="editCreateService.addOptionToQuestion(question)"
+    *ngIf="question.options.length < editCreateService.max_options"
+  >
+    Add Option
+    <mat-icon class="add">add</mat-icon>
+  </button>
+
+  <answer-slider
+    [answer_time]="question.answer_time"
+    suffix="second(s)"
+    (change)="answer_change($event)"
+    class="fill"
+    *ngIf="editCreateService.question_set.timed"
+  ></answer-slider>
+</div>
+
+<mat-divider class="space"></mat-divider>

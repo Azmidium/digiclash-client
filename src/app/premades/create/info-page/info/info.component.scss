@@ -1,0 +1,21 @@
+@import "../../../../../styles.scss";
+
+.page {
+  text-align: center;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+
+.large-space {
+  margin: 0 52px;
+}
+
+.space {
+  margin-top: 26px;
+}
+
+.fill {
+  @include fill;
+}

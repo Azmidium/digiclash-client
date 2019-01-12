@@ -1,0 +1,23 @@
+@import "../../../../../styles.scss";
+
+.row {
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.fill {
+  @include fill;
+}
+
+.space {
+  margin-left: 26px;
+}
+
+.center-row {
+  top: 12px;
+}
+
+.header-length {
+  width: 375px;
+}

@@ -1,0 +1,35 @@
+<div class="row fill">
+  <h1 class="header-length">Question #{{ index + 1 }}</h1>
+
+  <mat-form-field appearance="standard" class="fill space">
+    <input
+      class="fill"
+      matInput
+      placeholder="Insert your question here"
+      [(ngModel)]="question.text"
+      [maxlength]="editCreateService.question_char_limits"
+    />
+
+    <char-limit
+      [text]="question.text"
+      [max]="editCreateService.question_char_limits"
+      warn="60"
+      danger="20"
+      matSuffix
+    ></char-limit>
+
+    <mat-hint
+      >Make sure the question can be answered via multiple choice</mat-hint
+    >
+  </mat-form-field>
+
+  <button
+    mat-icon-button
+    class="button space"
+    [matMenuTriggerFor]="appMenu.matMenu"
+  >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</div>
+
+<menu-create [question]="question" #appMenu></menu-create>

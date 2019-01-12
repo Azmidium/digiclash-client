@@ -1,0 +1,11 @@
+@import "../../../styles.scss";
+
+.parent {
+  @include center-children;
+
+  overflow: hidden;
+}
+
+.spinner {
+  @include fill;
+}

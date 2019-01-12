@@ -1,0 +1,26 @@
+<div class="page fill">
+  <h1 class="header-length">{{ header }}</h1>
+  <button
+    class="fill space button"
+    [ngClass]="{
+      'pos-on': bool,
+      'pos-off': !bool
+    }"
+    (click)="updateBool(true)"
+    mat-raised-button
+  >
+    {{ pos_text }}
+  </button>
+
+  <button
+    class="fill button"
+    [ngClass]="{
+      'neg-on': !bool,
+      'neg-off': bool
+    }"
+    (click)="updateBool(false)"
+    mat-raised-button
+  >
+    {{ neg_text }}
+  </button>
+</div>

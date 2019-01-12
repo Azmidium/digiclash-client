@@ -1,0 +1,29 @@
+<div class="fill row">
+  <mat-slider
+    thumbLabel
+    min="0"
+    max="300"
+    step="5"
+    class="fill center-row"
+    tickInterval="2"
+    (change)="verifyInput()"
+    [(ngModel)]="leaderboard_time"
+  ></mat-slider>
+
+  <mat-form-field appearance="standard" class="space">
+    <mat-label>Time</mat-label>
+    <input
+      matInput
+      class="header-length"
+      type="number"
+      min="0"
+      step="5"
+      max="300"
+      placeholder="Insert time here"
+      (change)="verifyInput()"
+      [(ngModel)]="leaderboard_time"
+    />
+    <p matSuffix>{{ suffix }}</p>
+    <mat-hint>Between 0 - 300</mat-hint>
+  </mat-form-field>
+</div>

@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+.page {
+  @include font;
+  @include fill;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.center-children {
+  @include center-children;
+}
+
+.subpage {
+  @include fill;
+}
+
+.space {
+  margin-left: 26px;
+}
+
+.button-center {
+  top: 20px;
+}
+
+.add-button {
+  margin: 52px 0;
+
+  background-color: lightgreen;
+  color: white;
+}

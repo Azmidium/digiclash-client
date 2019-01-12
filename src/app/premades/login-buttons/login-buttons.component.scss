@@ -1,0 +1,27 @@
+@mixin gap {
+  margin: 4px;
+  padding: 4px;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 320px;
+  max-width: 320px;
+}
+
+.facebook {
+  @include gap;
+
+  background-color: #3f51b5;
+  color: white;
+}
+
+.google {
+  @include gap;
+
+  background-color: orangered;
+  color: white;
+}

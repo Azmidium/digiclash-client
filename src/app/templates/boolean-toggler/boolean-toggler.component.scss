@@ -1,0 +1,43 @@
+@import "./../../../styles.scss";
+
+.page {
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.header-length {
+  width: 475px;
+}
+
+.button {
+  top: 20px;
+}
+
+.fill {
+  @include fill;
+}
+
+.space {
+  margin-left: 26px;
+}
+
+.pos-on {
+  background-color: lightgreen;
+  color: white;
+}
+
+.pos-off {
+  background-color: white;
+  color: lightgreen;
+}
+
+.neg-on {
+  background-color: red;
+  color: white;
+}
+
+.neg-off {
+  background-color: white;
+  color: red;
+}

@@ -1,0 +1,45 @@
+<div class="page">
+  <mat-form-field appearance="standard" class="fill" floatLabel="always">
+    <mat-label>Option #{{ index + 1 }}</mat-label>
+    <input
+      class="fill"
+      matInput
+      placeholder="Insert your answer here"
+      [(ngModel)]="option.text"
+      [maxlength]="editCreateService.option_char_limits"
+    />
+
+    <char-limit
+      [text]="option.text"
+      [max]="editCreateService.option_char_limits"
+      warn="60"
+      danger="20"
+      matSuffix
+    ></char-limit>
+  </mat-form-field>
+
+  <point-slider
+    class="fill slider"
+    [points]="option.points"
+    suffix="point(s)"
+    (change)="points_change($event)"
+    *ngIf="!editCreateService.question_set.timed"
+  ></point-slider>
+
+  <button
+    mat-icon-button
+    class="button"
+    [ngClass]="this.option.correct ? 'on' : 'off'"
+    (click)="toggleCorrect()"
+  >
+    <mat-icon>check</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    class="button remove"
+    (click)="editCreateService.removeOptionFromQuestion(question, option)"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,37 @@
+@import "../../../../../styles.scss";
+
+.page {
+  @include fill;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.fill {
+  @include fill;
+}
+
+.slider {
+  margin-left: 26px;
+}
+
+.button {
+  top: 16px;
+  margin-left: 8px;
+  height: 100%;
+}
+
+.on {
+  color: white;
+  background-color: lightgreen;
+}
+
+.off {
+  color: lightgreen;
+  background-color: white;
+}
+
+.remove {
+  color: red;
+}
