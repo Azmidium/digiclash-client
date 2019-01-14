@@ -1,16 +1,39 @@
 <div class="page">
   <h1>Join a game</h1>
 
-  <one-field-form
-    appearance="standard"
-    label="Join Code"
-    placeholder="Enter the code here..."
-    hint="It's around 7-8 digits..."
-    (onEnter)="attemptJoinGame($event)"
-    (onChange)="recieved = $event"
-  ></one-field-form>
+  <mat-progress-bar
+    [ngStyle]="{
+      visibility: loading ? 'visible' : 'hidden'
+    }"
+    mode="buffer"
+  ></mat-progress-bar>
 
-  <button mat-fab (click)="attemptJoinGame(recieved)" color="primary">
-    <mat-icon> arrow_right </mat-icon>
-  </button>
+  <div
+    [ngStyle]="{
+      visibility: !loading ? 'visible' : 'hidden'
+    }"
+  >
+    <one-field-form
+      appearance="standard"
+      label="Join Code"
+      placeholder="Enter the code here..."
+      hint="It's around 7-8 digits..."
+      [max]="8"
+      (onEnter)="checkJoinGame($event)"
+      (onChange)="recieved = $event"
+    ></one-field-form>
+
+    <button mat-fab (click)="checkJoinGame(recieved)" color="primary">
+      <mat-icon> arrow_right </mat-icon>
+    </button>
+
+    <p
+      [ngStyle]="{
+        visibility: error ? 'inherit' : 'hidden'
+      }"
+      style="color: red"
+    >
+      Game doesn't exist with that code!
+    </p>
+  </div>
 </div>

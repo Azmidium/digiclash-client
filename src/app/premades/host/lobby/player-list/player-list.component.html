@@ -1,0 +1,6 @@
+<mat-grid-list cols="2" rowHeight="5:1">
+  <mat-grid-tile *ngFor="let player of hostService.getPlayers() || []">
+    <mat-icon>person</mat-icon>
+    <h3>{{ player.display_name }}</h3>
+  </mat-grid-tile>
+</mat-grid-list>

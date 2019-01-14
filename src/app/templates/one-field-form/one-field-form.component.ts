@@ -11,6 +11,7 @@ export class OneFieldFormComponent {
   @Input() placeholder: string;
   @Input() icon?: string;
   @Input() hint?: string;
+  @Input() max: number;
 
   @Output() onEnter = new EventEmitter();
   @Output() onChange = new EventEmitter();

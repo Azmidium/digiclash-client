@@ -3,6 +3,7 @@
   <input
     [(ngModel)]="input"
     matInput
+    [maxlength]="max"
     [placeholder]="placeholder"
     (input)="sendChangeEvent()"
     (keyup.enter)="sendEnterEvent()"

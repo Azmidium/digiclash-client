@@ -1,3 +1,4 @@
+import { HostGuard } from "./guards/host/host.guard";
 import { HostService } from "./services/host/host.service";
 import { QuestionSetService } from "./services/question_set/question-set.service";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
@@ -66,6 +67,23 @@ import { TransitionSliderComponent } from "./premades/create/settings-page/trans
 import { LoadingCreateDialog } from "./dialogs/loading-create/loading-create.component";
 import { SetTableComponent } from "./premades/dashboard/set-table/set-table.component";
 import { LoadingEditDialog } from "./dialogs/loading-edit/loading-edit.component";
+import { HostLobbyComponent } from "./game-components/host/lobby/lobby.component";
+import { HostTransitionComponent } from "./game-components/host/transition/transition.component";
+import { HostQuestionComponent } from "./game-components/host/question/question.component";
+import { HostAnswerComponent } from "./game-components/host/answer/answer.component";
+import { HostLeaderboardComponent } from "./game-components/host/leaderboard/leaderboard.component";
+import { HostFinishComponent } from "./game-components/host/finish/finish.component";
+import { PlayerConnectedComponent } from "./game-components/player/connected/connected.component";
+import { PlayerTransitionComponent } from "./game-components/player/transition/transition.component";
+import { PlayerAnswerComponent } from "./game-components/player/answer/answer.component";
+import { PlayerShowAnswerComponent } from "./game-components/player/show-answer/show-answer.component";
+import { PlayerStatsComponent } from "./game-components/player/stats/stats.component";
+import { PlayerFeedbackComponent } from "./game-components/player/feedback/feedback.component";
+import { GameService } from "./services/game/game.service";
+import { PlayerGuard } from "./guards/player/player.guard";
+import { NameComponent } from './components/name/name.component';
+import { DisplayNameComponent } from './premades/display-name/display-name.component';
+import { PlayerListComponent } from './premades/host/lobby/player-list/player-list.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +117,9 @@ import { LoadingEditDialog } from "./dialogs/loading-edit/loading-edit.component
     // Premades: Create --> Settings
     SettingsComponent,
 
+    // Premades: Dashboard --> My Question Sets
+    SetTableComponent,
+
     // Templates
     BooleanTogglerComponent,
     ImageCaptionComponent,
@@ -107,17 +128,35 @@ import { LoadingEditDialog } from "./dialogs/loading-edit/loading-edit.component
 
     // Menus
     MenuCreateComponent,
-    LoadingCreateDialog,
 
     // Dialogs
+    LoadingCreateDialog,
+    LoadingEditDialog,
 
     // Error Screens
     MobileComponent,
     NotFoundComponent,
     LeaderboardSliderComponent,
     TransitionSliderComponent,
-    SetTableComponent,
-    LoadingEditDialog
+
+    // Host Screens
+    HostLobbyComponent,
+    HostTransitionComponent,
+    HostQuestionComponent,
+    HostAnswerComponent,
+    HostLeaderboardComponent,
+    HostFinishComponent,
+
+    // Player Screens
+    PlayerConnectedComponent,
+    PlayerTransitionComponent,
+    PlayerAnswerComponent,
+    PlayerShowAnswerComponent,
+    PlayerStatsComponent,
+    PlayerFeedbackComponent,
+    NameComponent,
+    DisplayNameComponent,
+    PlayerListComponent
   ],
   imports: [
     // Core modules
@@ -146,11 +185,14 @@ import { LoadingEditDialog } from "./dialogs/loading-edit/loading-edit.component
     QuestionSetService,
     PlayerService,
     HostService,
+    GameService,
 
     // Guards
     AuthGuard,
     AnonGuard,
-    MobileGuard
+    MobileGuard,
+    PlayerGuard,
+    HostGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [LoadingCreateDialog, LoadingEditDialog],

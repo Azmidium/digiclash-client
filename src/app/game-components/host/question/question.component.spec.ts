@@ -1,0 +1,24 @@
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+
+import { HostQuestionComponent } from "./question.component";
+
+describe("QuestionComponent", () => {
+  let component: HostQuestionComponent;
+  let fixture: ComponentFixture<HostQuestionComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [HostQuestionComponent]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HostQuestionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+});

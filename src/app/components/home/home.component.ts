@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DeviceDetectorService } from "ngx-device-detector";
+import { GameService } from "src/app/services/game/game.service";
 
 @Component({
   selector: "app-home",
@@ -10,10 +11,13 @@ import { DeviceDetectorService } from "ngx-device-detector";
 export class HomeComponent implements OnInit {
   constructor(
     private route: Router,
+    private gameService: GameService,
     private deviceService: DeviceDetectorService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.gameService.reset();
+  }
 
   goToLogin = () => this.route.navigate(["/login"]);
 

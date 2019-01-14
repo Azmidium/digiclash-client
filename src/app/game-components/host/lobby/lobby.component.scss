@@ -1,0 +1,44 @@
+@import "../../../../styles.scss";
+
+.page {
+  @include font;
+  @include fill;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+
+  text-align: center;
+}
+
+.subpage {
+  @include fill;
+
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.center {
+  @include center;
+}
+
+.center-children {
+  @include center-children;
+}
+
+.fill {
+  @include fill;
+}
+
+mat-grid-tile {
+  background: white;
+}

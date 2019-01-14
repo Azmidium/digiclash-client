@@ -7,6 +7,14 @@
   text-align: center;
 }
 
+.below {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  zoom: 0.5;
+}
+
 .page button {
   margin-top: 60px;
 }

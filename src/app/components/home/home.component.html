@@ -5,8 +5,14 @@
     width="300px"
   />
   <join></join>
-  <button mat-raised-button *ngIf="!isMobile()" (click)="goToLogin()">
-    <mat-icon>dashboard</mat-icon>
-    View Dashboard
-  </button>
 </div>
+
+<button
+  class="below"
+  mat-raised-button
+  *ngIf="!isMobile()"
+  (click)="goToLogin()"
+>
+  <mat-icon>dashboard</mat-icon>
+  View Dashboard
+</button>

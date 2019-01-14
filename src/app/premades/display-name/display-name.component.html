@@ -1,0 +1,39 @@
+<div class="page">
+  <h1>Pick a name</h1>
+
+  <mat-progress-bar
+    [ngStyle]="{
+      visibility: loading ? 'visible' : 'hidden'
+    }"
+    mode="buffer"
+  ></mat-progress-bar>
+
+  <div
+    [ngStyle]="{
+      visibility: !loading ? 'visible' : 'hidden'
+    }"
+  >
+    <one-field-form
+      appearance="standard"
+      label="Display Name"
+      placeholder="Enter display name here..."
+      hint="Can only be 20 letters"
+      [max]="20"
+      (onEnter)="attemptJoinGame($event)"
+      (onChange)="recieved = $event"
+    ></one-field-form>
+
+    <button mat-fab (click)="attemptJoinGame(recieved)" color="primary">
+      <mat-icon> arrow_right </mat-icon>
+    </button>
+
+    <p
+      [ngStyle]="{
+        visibility: error ? 'inherit' : 'hidden'
+      }"
+      style="color: red"
+    >
+      You must specify a display name
+    </p>
+  </div>
+</div>
